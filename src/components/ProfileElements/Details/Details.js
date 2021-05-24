@@ -5,6 +5,7 @@ import axios from 'axios';
 import ServerService from '../../../services/serverService';
 import {NotificationContainer, NotificationManager} from 'react-notifications';
 
+import { storage } from "../../../firebase/index"; //for firebase image storage
 
 
 
@@ -34,12 +35,30 @@ class Details extends Component {
 
         const file=e.target.files[0];
         
-        const formdata = new FormData();
 
-        formdata.append('image_user', file);
 
-        ServerService.profilepicture(formdata, userid)
-        .then((resp)=>{
+        const uploadFirebase = storage.ref(`images/${file.name}`).put(file);
+
+        uploadFirebase.on(
+          "state_changed",
+          snapshot => {},
+          error => {
+            console.log(error);
+          },
+          () => {
+            storage
+              .ref("images")
+              .child(file.name)
+              .getDownloadURL()
+              .then(url => {
+                console.log(url)
+
+                const data={
+                    userimage: url
+                }
+      
+            ServerService.profilepicture(data, userid)
+            .then((resp)=>{
             console.log(resp)
             if(resp.status===200){
                 this.createSuccess("Profile Picture changed successfully")
@@ -47,6 +66,14 @@ class Details extends Component {
             }
        
           })
+                
+            
+              })
+              .catch(err => {console.log(err.response)})
+      
+              });
+      
+
 
     }
 

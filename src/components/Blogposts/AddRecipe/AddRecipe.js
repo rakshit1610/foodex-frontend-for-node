@@ -8,6 +8,8 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import ServerService from '../../../services/serverService';
 import LoadingOverlay from 'react-loading-overlay';
 
+import { storage } from "../../../firebase/index"; //for firebase image storage
+
 class AddRecipe extends Component {
 
     state = { 
@@ -62,40 +64,56 @@ else if(this.state.content.length<160){
 }
 
 else{
-  
   this.setState({isLoading: true});
 
-      const data={
-        title: this.state.title,
-        category: this.state.category,
-        ingredients: this.state.ingredients,
-        content: this.state.content,
-        veg: this.state.veg,
-        cook_time: this.state.cook_time,
-        ownerId: this.state.ownerId,
-        img: this.state.img
-      }
-        
-      const formdata = new FormData();
-    for (let formElement in data) {
-      formdata.append(formElement, data[formElement]);
-      // console.log(formElement, data[formElement]);
-    }
+  const uploadFirebase = storage.ref(`images/${this.state.img.name}`).put(this.state.img);
 
-    console.log(formdata)
-        // axios.post('http://58eaa649e23e.ngrok.io/recipe/post/'+ userpk +'/', formdata)
-        // axios.post('https://f301cd771e23.ngrok.io/recipe/post/', formdata)
-        ServerService.addrecipe(formdata)
+  uploadFirebase.on(
+    "state_changed",
+    snapshot => {},
+    error => {
+      console.log(error);
+    },
+    () => {
+      storage
+        .ref("images")
+        .child(this.state.img.name)
+        .getDownloadURL()
+        .then(url => {
+          console.log(url)
+          this.setState({img:url})
+
+
+          const data={
+            title: this.state.title,
+            category: this.state.category,
+            ingredients: this.state.ingredients,
+            content: this.state.content,
+            veg: this.state.veg,
+            cook_time: this.state.cook_time,
+            ownerId: this.state.ownerId,
+            img: url
+          }
+
+          console.log(data)
+
+          ServerService.addrecipe(data)
         .then((resp)=>{
           console.log(resp)
           if(resp.status===201){
             this.createSuccess("Recipe Posted!")
             this.setState({ isLoading:false, redirect: "/profile"});
-            // this.setState({ redirect: "/profile"});
           }
       
         })
         .catch(err => {console.log(err.response)})
+
+        });
+
+    }
+  );
+  
+        
 }
     
       }

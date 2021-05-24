@@ -8,6 +8,9 @@ import {NotificationContainer, NotificationManager} from 'react-notifications';
 import serverService from '../../../services/serverService'
 import LoadingOverlay from 'react-loading-overlay';
 
+import { storage } from "../../../firebase/index"; //for firebase image storage
+
+
 class EditRecipe extends Component {
 
     state = { 
@@ -18,6 +21,7 @@ class EditRecipe extends Component {
     content:"",
     recipe:[],
     img: null,
+    oldimg: null,
     contentLimit:4000,
     category:"starters",
     veg:true,
@@ -35,14 +39,15 @@ class EditRecipe extends Component {
       pk: this.props.location.state.recipeid,
       readerpk: localStorage.getItem('userId')
     }
-  // axios.get('http://af3c2d386213.ngrok.io/recipe/'+this.props.location.state.recipeid+'/')
+
   console.log(data)
   serverService.readrecipe(data)
   .then(response=>{
     console.log(response);
     this.setState({recipe: response.data})
     this.setState({title: response.data.title, ingredients: response.data.ingredients, content: response.data.content,
-    veg: response.data.veg, cook_time: response.data.cook_time, category: response.data.category
+    veg: response.data.veg, cook_time: response.data.cook_time, category: response.data.category, img: response.data.img, 
+    oldimg: response.data.img
     })
 
   })
@@ -83,64 +88,152 @@ else if(this.state.content.length<160){
   this.createNotification("Instructions should be at least 160 characters long")
 }
 
-        else{
+else{
 
-          this.setState({isLoading:true });
 
-          let data=[]
-          if(this.state.img===null){
-            data={
-              title: this.state.title,
-              recipeId: this.props.location.state.recipeid,
-              category: this.state.category,
-              ingredients: this.state.ingredients,
-              content: this.state.content,
-              veg: this.state.veg,
-              cook_time: this.state.cook_time,
-              owner: this.state.owner,
-            }
-  
+  if(this.state.oldimg!==this.state.img){
+    this.setState({isLoading: true});
+console.log("img bdli")
+  const uploadFirebase = storage.ref(`images/${this.state.img.name}`).put(this.state.img);
+
+  uploadFirebase.on(
+    "state_changed",
+    snapshot => {},
+    error => {
+      console.log(error);
+    },
+    () => {
+      storage
+        .ref("images")
+        .child(this.state.img.name)
+        .getDownloadURL()
+        .then(url => {
+          console.log(url)
+          this.setState({img:url})
+
+
+          const data={
+            title: this.state.title,
+            category: this.state.category,
+            ingredients: this.state.ingredients,
+            recipeId: this.props.location.state.recipeid,
+            content: this.state.content,
+            veg: this.state.veg,
+            cook_time: this.state.cook_time,
+            ownerId: this.state.ownerId,
+            img: url
           }
 
-          else{
-            data={
-              title: this.state.title,
-              recipeId: this.props.location.state.recipeid,
-              category: this.state.category,
-              ingredients: this.state.ingredients,
-              content: this.state.content,
-              veg: this.state.veg,
-              cook_time: this.state.cook_time,
-              owner: this.state.owner,
-              img: this.state.img
-            }
-  
+          console.log(data)
+
+          serverService.editrecipe(data)
+        .then((resp)=>{
+          console.log(resp)
+          if(resp.status===200){
+            this.createSuccess("Recipe Posted!")
+            this.setState({ isLoading:false, redirect: "/profile"});
           }
+      
+        })
+        .catch(err => {console.log(err.response)})
+
+        });
+
+    }
+  );
+  }
+
+  else{
+    this.setState({isLoading: true});
+    console.log("img nhi bdli")
+
+    const data={
+      title: this.state.title,
+      category: this.state.category,
+      ingredients: this.state.ingredients,
+      recipeId: this.props.location.state.recipeid,
+      content: this.state.content,
+      veg: this.state.veg,
+      cook_time: this.state.cook_time,
+      ownerId: this.state.ownerId,
+      img: this.state.oldimg
+    }
+
+    console.log(data)
+
+    serverService.editrecipe(data)
+  .then((resp)=>{
+    console.log(resp)
+    if(resp.status===200){
+      this.createSuccess("Recipe Posted!")
+      this.setState({ isLoading:false, redirect: "/profile"});
+    }
+
+  })
+  .catch(err => {console.log(err.response)})
+  }
+  
+        
+}
+
+      //   else{
+
+      //     this.setState({isLoading:true });
+
+      //     let data=[]
+      //     if(this.state.img===null){
+      //       data={
+      //         title: this.state.title,
+      //         recipeId: this.props.location.state.recipeid,
+      //         category: this.state.category,
+      //         ingredients: this.state.ingredients,
+      //         content: this.state.content,
+      //         veg: this.state.veg,
+      //         cook_time: this.state.cook_time,
+      //         owner: this.state.owner,
+      //       }
+  
+      //     }
+
+      //     else{
+      //       data={
+      //         title: this.state.title,
+      //         recipeId: this.props.location.state.recipeid,
+      //         category: this.state.category,
+      //         ingredients: this.state.ingredients,
+      //         content: this.state.content,
+      //         veg: this.state.veg,
+      //         cook_time: this.state.cook_time,
+      //         owner: this.state.owner,
+      //         img: this.state.img
+      //       }
+  
+      //     }
 
 
       
         
-          const formdata = new FormData();
-          for (let formElement in data) {
-            formdata.append(formElement, data[formElement]);
-            // console.log(formElement, data[formElement]);
-          }
+      //     const formdata = new FormData();
+      //     for (let formElement in data) {
+      //       formdata.append(formElement, data[formElement]);
+      //       // console.log(formElement, data[formElement]);
+      //     }
       
-          console.log(formdata)
-              // axios.post('http://58eaa649e23e.ngrok.io/recipe/post/'+ userpk +'/', formdata)
-              // axios.post('https://f301cd771e23.ngrok.io/recipe/post/', formdata)
-              serverService.editrecipe(formdata)
-              .then((resp)=>{
-                console.log(resp)
-                if(resp.status===200){
-                  this.createSuccess("Recipe Posted!")
-                  this.setState({ isLoading:false, redirect: "/profile"});
-                  // this.setState({ redirect: "/profile"});
-                }
+      //     console.log(formdata)
+      //         // axios.post('http://58eaa649e23e.ngrok.io/recipe/post/'+ userpk +'/', formdata)
+      //         // axios.post('https://f301cd771e23.ngrok.io/recipe/post/', formdata)
+      //         serverService.editrecipe(formdata)
+      //         .then((resp)=>{
+      //           console.log(resp)
+      //           if(resp.status===200){
+      //             this.createSuccess("Recipe Posted!")
+      //             this.setState({ isLoading:false, redirect: "/profile"});
+      //             // this.setState({ redirect: "/profile"});
+      //           }
             
-              })
-              .catch(err => {console.log(err.response)})
-      }
+      //         })
+      //         .catch(err => {console.log(err.response)})
+      // }
           
             }
 
