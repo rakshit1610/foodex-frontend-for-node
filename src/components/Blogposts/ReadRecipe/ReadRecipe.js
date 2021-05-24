@@ -37,10 +37,12 @@ class AddRecipe extends Component {
         this.setState({isLoading:true})
 
         const data={
-          recipepk: this.state.recipe.pk,
-          suggestion:  this.state.suggestion
+          recipename: this.state.recipe.title,
+          suggestion:  this.state.suggestion,
+          readerpk: localStorage.getItem('userId'),
+          ownerpk: this.state.recipe.ownerId
         }
-
+        console.log(data)
         serverService.suggestions(data)
       .then((resp)=>{
         console.log(resp)
