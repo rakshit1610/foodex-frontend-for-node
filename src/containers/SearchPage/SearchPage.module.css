@@ -1,0 +1,155 @@
+
+.grid {
+    /* min-height: 100%; */
+    display: flex;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+
+
+  
+  @media(min-width: 1000px){
+      .grid{
+          grid-template-columns: 1fr;
+          /* overflow: hidden; */
+      }
+  }
+
+.searchpagebar{
+    position: fixed;
+    top: 22px;
+    z-index:4000;
+    margin-left:15.3vw;
+    /* margin-bottom:2% */
+}
+
+.droplistopt:hover{
+  background-color:#e60e3c !important;
+  color:white;
+
+}
+
+.sortwrap{
+  display: flex;
+  justify-content: center;
+}
+
+.dropbtns{
+  margin-top: 20px ;
+  margin-right: 10%;
+  background-color:#fff;
+  width:180px;
+}
+
+.dropsbtns{
+  margin-top: 20px ;
+  margin-right: 10%;
+  background-color:#fff;
+  width:162px;
+}
+
+
+.dropbtns >*{
+  border: none !important;
+  outline:none !important;
+  box-shadow: none !important;
+}
+
+.dropsbtns >*{
+  border: none !important;
+  outline:none !important;
+  box-shadow: none !important;
+}
+
+
+.sortbtn{
+  padding: 4px;
+   margin-top: 20px ;
+  /* width: 5%; */
+  margin-left: 3%;
+}
+
+.sbar{
+    width: 40vw !important;
+    padding-left: 15px;
+    height: 35px;
+    outline: none;
+    box-shadow:none !important;
+    border:1px solid #ccc !important;
+    /* margin: 0.5vw; */
+    /* border-radius: 5px !important; */
+  }
+  
+  .sbar:focus{
+    outline: none;
+    box-shadow:none !important;
+    border:1px solid #e60e3c !important;
+  }
+
+
+.sbtn{
+        width: 3vw;
+        height: 35px;
+        /* display: flex;
+        flex-wrap: wrap; */
+        background-color: f1f1f1;
+        border:none;
+        outline: none;
+        border:none;
+        color: #e60e3c;
+}
+
+.sbtn:hover{
+    background-color: #e60e3c;
+    color: white;
+    border-radius: 4px;
+}
+
+.sbtn:focus{
+    outline: none;
+    
+}
+
+@media(max-width:1150px){
+    .sbar{
+        width: 30vw !important;
+        height: 35px;
+        outline: none;
+        box-shadow:none !important;
+        border:1px solid #ccc !important;
+        /* margin: 0.5vw; */
+        /* border-radius: 5px !important; */
+      }
+  }
+
+@media(max-width:991px){
+    .sbar{
+        display:none;
+      }
+    .sbtn{
+        display:none;
+      }
+  }
+
+
+  @media(max-width:400px){
+
+.sortwrap{
+  flex-direction: column;
+  /* align-content: center;
+  justify-content: center; */
+}
+
+.dropbtns{
+  width: 100%;
+  text-align: center;
+  /* font-size: 2px; */
+}
+.dropsbtns{
+  width: 100%;
+  text-align: center;
+  /* font-size: 2px; */
+
+}
+  }

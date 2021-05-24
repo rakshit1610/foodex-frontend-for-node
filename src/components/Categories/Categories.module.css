@@ -1,0 +1,139 @@
+
+
+.startersCover{
+    color: white;
+    font-size: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.73)),
+    url("../../assets/images/starters.jpg");
+    background-size: cover;
+    height: 400px;
+    background-position: center;
+}
+
+.drinksCover{
+    color: white;
+    font-size: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.44), rgba(0, 0, 0, 0.63)),
+    url("../../assets/images/drinks.jpg");
+    background-size: cover;
+    height: 400px;
+    background-position: center;
+}
+
+.dessertsCover{
+    color: white;
+    font-size: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.73)),
+    url("../../assets/images/desserts.jpg");
+    background-size: cover;
+    height: 400px;
+    background-position: center;
+}
+
+.maincourseCover{
+    color: white;
+    font-size: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.57), rgba(0, 0, 0, 0.73)),
+    url("../../assets/images/maincourse.jpg");
+    background-size: cover;
+    height: 400px;
+    background-position: center;
+}
+
+.othersCover{
+    color: white;
+    font-size: 6rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.78)),
+    url("../../assets/images/others.jpg");
+    background-size: cover;
+    height: 400px;
+    background-position: center;
+}
+
+
+.spinner{
+    margin-left: 45vw;
+    margin-top: 20px;
+}
+
+
+.grid {
+    /* min-height: 100%; */
+    display: flex;
+    /* grid-template-columns: 1fr 1fr 1fr 1fr; */
+    flex-wrap: wrap;
+    flex-direction: row;
+  }
+  
+  @media(min-width: 1000px){
+      .grid{
+          grid-template-columns: 1fr;
+          /* overflow: hidden; */
+      }
+  }
+
+  @media(max-width: 390px){
+    .startersCover, .dessertsCover, .othersCover{
+        font-size: 4rem;
+      }
+  }
+
+  @media(max-width: 586px){
+    .maincourseCover{
+        font-size: 4rem;
+      }
+  }
+
+  @media(max-width: 420px){
+    .maincourseCover{
+        font-size: 2.8rem;
+    }
+
+    .drinksCover{
+        font-size: 1.7rem !important;
+    }
+  }
+
+
+  @media(max-width: 660px){
+    .drinksCover{
+        font-size: 2.5rem;
+      }
+  }
+
+
+  /* to make spinner respponsive */
+
+  @media(max-width:750px){
+    .spinner{
+        margin-left: 40vw;
+        margin-top: 20px;
+    }
+  }
+
+  @media(max-width:300px){
+    .spinner{
+        margin-left: 35vw;
+        margin-top: 20px;
+    }
+  }

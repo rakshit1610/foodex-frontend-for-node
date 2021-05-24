@@ -1,0 +1,212 @@
+
+.footerdistributed{
+	background: #1d2331;
+	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+	box-sizing: border-box;
+	width: 100%;
+	text-align: left;
+	font: bold 16px sans-serif;
+	padding: 55px 50px;
+}
+
+.footerdistributed .footerleft,
+.footerdistributed .footercenter,
+.footerdistributed .footerright{
+	display: inline-block;
+	vertical-align: top;
+}
+
+
+
+.footerdistributed .footerleft{
+	width: 40%;
+}
+
+
+.footerdistributed h3{
+	color:  #ffffff;
+	font: normal 40px 'Bubblegum Sans';
+	margin: 0;
+}
+
+.footerdistributed h3 span{
+	color:  lightseagreen;
+}
+
+
+
+.footerdistributed .footerlinks{
+	color:  #ffffff;
+	margin: 20px 0 12px;
+	padding: 0;
+}
+
+.footerdistributed .footerlinks .categoryroutes{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+  margin-right: 3px;
+	text-decoration: none;
+	color:  inherit;
+}
+
+
+
+.footerdistributed .footercompanyname{
+	color:  #fff;
+	font-size: 14px;
+	font-weight: normal;
+	margin: 0;
+}
+
+
+.footerdistributed .footercenter{
+	width: 35%;
+}
+
+.footerdistributed .footercenter i{
+	/* background-color:  #33383b; */
+	color: #ffffff;
+	font-size: 25px;
+	width: 38px;
+	height: 38px;
+	border-radius: 50%;
+	text-align: center;
+	line-height: 42px;
+	margin: 10px 15px;
+	vertical-align: middle;
+}
+
+.footerdistributed .footercenter i.fa-envelope{
+	font-size: 17px;
+	line-height: 38px;
+}
+
+.footerdistributed .footercenter p{
+	display: inline-block;
+	color: #ffffff;
+  font-weight:400;
+	vertical-align: middle;
+	margin:0;
+}
+
+.footerdistributed .footercenter p span{
+	display:block;
+	font-weight: normal;
+	font-size:14px;
+	line-height:2;
+}
+
+.footerdistributed .footercenter p span{
+	color:  #fff;
+	text-decoration: none;;
+}
+
+.footerdistributed .footerlinks a:after {
+  content: "|";
+  font-weight:300;
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-left: 5px;
+}
+
+.footerdistributed .footerlinks .link1:after {
+  content: none;
+
+}
+
+.footerdistributed .footerlinks .link1{
+	display:inline-block;
+	line-height: 1.8;
+  font-weight:400;
+  margin-right: 3px;
+	text-decoration: none;
+	color:  inherit;
+}
+
+.footerdistributed .footerlinks .link1:hover , .footerdistributed .footerlinks .categoryroutes:hover{
+	color: #ff1742;
+	font:Roboto;
+	font-weight: 600;
+}
+
+
+.footerdistributed .footerright{
+	width: 20%;
+}
+
+
+.footerdistributed .footercompanyabout{
+	line-height: 20px;
+	color:  #f2f2f2;
+	font-family: Lato;
+	font-size: 15px;
+	font-weight: normal;
+	margin: 0;
+}
+
+.footerdistributed .footercompanyabout span{
+	font-family: Roboto;
+	display: block;
+	color:  #ff1742;
+	font-weight: 600 !important;
+	font-size: 25px;
+	/* font-weight: bold; */
+	margin-bottom: 20px;
+}
+
+.contacttext{
+	font-family: Roboto;
+	display: block;
+	color:  #ff1742 !important;
+	font-weight: 600 !important;
+	font-size: 25px;
+	/* font-weight: bold; */
+	margin-bottom: 10px !important;	
+	margin-left: 15px !important;
+}
+
+.footerdistributed .footericons{
+	margin-top: 25px;
+}
+
+.footerdistributed .footericons a{
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	cursor: pointer;
+	/* background-color:  red; */
+	border-radius: 2px;
+
+	font-size: 30px;
+	color: #ffffff;
+	text-align: center;
+	line-height: 35px;
+
+	margin-right: 3px;
+	margin-bottom: 5px;
+}
+
+
+@media (max-width: 880px) {
+
+	.footerdistributed{
+		font: bold 14px sans-serif;
+	}
+
+	.footerdistributed .footerleft,
+	.footerdistributed .footercenter,
+	.footerdistributed .footerright{
+		display: block;
+		width: 100%;
+		margin-bottom: 40px;
+		text-align: center;
+	}
+
+	.footerdistributed .footercenter i{
+		margin-left: 0;
+	}
+
+}

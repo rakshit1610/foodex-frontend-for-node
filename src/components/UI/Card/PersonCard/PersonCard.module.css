@@ -1,0 +1,105 @@
+.personbox{
+    /* margin-top: 0.5rem; */
+    margin-bottom: 1rem;
+}
+
+.personimg{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-left:5%;
+}
+
+.usrname{
+    margin-left: 6%;
+    font-size: 25px;
+}
+
+.checkprofilebtn{
+    margin-left: 25%;
+    padding: 4px !important;
+    font-size: 16px !important;
+    color: white;
+    background-color:#ff1742;
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.checkprofilebtn:hover, .checkprofilebtn:focus {
+    background-color:#c9042b;
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
+
+.persongrid{
+        /* min-height: 100%; */
+        display: flex;
+       justify-content: space-evenly;
+        flex-wrap: wrap;
+        flex-direction: row;
+}
+
+@media(max-width:530px){
+.checkprofilebtn{
+    margin-left: 15%;
+}
+
+
+.usrname{
+    font-size: 20px;
+}
+
+}
+
+@media(max-width:405px){
+
+    .personimg{
+        /* margin-left: 0; */
+        width: 50px;
+        height: 50px;
+        margin-left: 7%;
+    }
+
+    .usrname{
+        font-size: 15px;
+        /* margin-right: 0%; */
+    }
+
+    .checkprofilebtn{
+        font-size: 7px;
+        height: 30px;
+        margin-left: 15%;
+        transform: scale(0.6);
+    }
+
+}
+
+@media(max-width:330px){
+
+    .personimg{
+        margin-left: 0;
+        width: 50px;
+        height: 50px;
+    }
+
+    .usrname{
+        font-size: 15px;
+        /* margin-right: 0%; */
+    }
+
+    .checkprofilebtn{
+        font-size: 7px;
+        height: 30px;
+        margin-left: 0;
+        transform: scale(0.6);
+    }
+
+}
+
+@media(max-width:1260px){
+    .checkprofilebtn{
+    margin-right: 10px !important;
+    }
+}
