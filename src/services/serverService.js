@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const BASE_URL = "https://foodexnode.herokuapp.com/";
+const BASE_URL = "https://foodex-backend-node.onrender.com/";
 // const BASE_URL = "http://localhost:8000/";
 
 class ServerService {
