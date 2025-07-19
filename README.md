@@ -8,7 +8,6 @@ A full-stack recipe sharing and food community platform built with the MERN stac
 - ✅ User profile management with profile picture upload
 - ✅ Follow/unfollow system for users
 - ✅ User statistics (post count, followers, following)
-- ✅ User preferences and settings
 
 ### Recipe Management
 - ✅ Create, read, update, and delete recipes
@@ -86,10 +85,10 @@ A full-stack recipe sharing and food community platform built with the MERN stac
 <img width="1372" height="757" alt="Screenshot 2025-07-19 at 10 25 30 PM" src="https://github.com/user-attachments/assets/fdd70f36-724a-4f5a-9428-2f2ede68eee3" />
 
 ### My Bookmarks
-<img width="1728" height="1117" alt="Screenshot 2025-07-19 at 9 34 36 PM" src="https://github.com/user-attachments/assets/9013b2d2-440f-4c04-9efc-d246e4ef2911" />
+<img width="1728" height="961" alt="Screenshot 2025-07-19 at 9 33 30 PM" src="https://github.com/user-attachments/assets/844402f2-9843-4ae8-80c5-6cce5db1b2a2" />
 
 ### My Recipes
-<img width="1728" height="1117" alt="Screenshot 2025-07-19 at 9 33 53 PM" src="https://github.com/user-attachments/assets/5c2bbcab-9da5-4410-8eee-a9550eac3a8f" />
+<img width="1372" height="756" alt="Screenshot 2025-07-19 at 10 37 37 PM" src="https://github.com/user-attachments/assets/1176d5b5-1642-494f-bad5-2498319e6e1f" />
 
 ### Followers
 <img width="1728" height="963" alt="Screenshot 2025-07-19 at 9 30 22 PM" src="https://github.com/user-attachments/assets/f7682345-0a3b-4836-afc3-d8f8b02495a2" />
