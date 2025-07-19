@@ -36,7 +36,6 @@ A full-stack recipe sharing and food community platform built with the MERN stac
 ### Frontend Features
 - ✅ Responsive React application with modern UI/UX
 - ✅ Bootstrap alerts for user feedback
-- ✅ Mobile-first responsive design
 
 ### Backend Features
 - ✅ RESTful API design with proper HTTP status codes
@@ -46,14 +45,6 @@ A full-stack recipe sharing and food community platform built with the MERN stac
 - ✅ Modular architecture with controllers and routes
 - ✅ Environment variable configuration
 - ✅ API rate limiting and security
-
-### Advanced Features
-- ✅ Real-time notifications
-- ✅ Recipe analytics and insights
-- ✅ Advanced search with filters
-- ✅ Recipe collections and categories
-- ✅ User-generated content moderation
-- ✅ Performance optimization with caching
 
 ## 🛠️ Tech Stack
 
@@ -121,14 +112,6 @@ foodex-mern/
 └── README.md              # This file
 ```
 
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js (v14 or higher)
-- npm or yarn package manager
-- Git
-
 ## 📚 API Endpoints
 
 ### Authentication
@@ -163,20 +146,3 @@ foodex-mern/
 - `GET /user/followers/:userId` - Get followers list
 - `POST /user/follow-toggle` - Follow/unfollow user
 - `PUT /user/preferences` - Update user preferences
-
-## 🎨 Frontend Features
-
-### Pages & Components
-- **Authentication Pages**: Signup, Login, OTP, Forgot Password
-- **Homepage**: Featured recipes, categories, search
-- **Recipe Pages**: View, create, edit, delete recipes
-- **User Profile**: Profile management, bookmarks, following
-- **Search & Discovery**: Advanced search with filters
-- **Responsive Design**: Mobile-first approach
-
-### State Management
-- Redux store for global state
-- User authentication state
-- Recipe data management
-- UI state management
-- Real-time updates
