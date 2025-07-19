@@ -33,19 +33,6 @@ A full-stack recipe sharing and food community platform built with the MERN stac
 - ✅ Community engagement features
 - ✅ Recipe recommendations based on user preferences
 
-### Frontend Features
-- ✅ Responsive React application with modern UI/UX
-- ✅ Bootstrap alerts for user feedback
-
-### Backend Features
-- ✅ RESTful API design with proper HTTP status codes
-- ✅ CORS enabled for frontend integration
-- ✅ File-based database for easy demo setup
-- ✅ Error handling and validation
-- ✅ Modular architecture with controllers and routes
-- ✅ Environment variable configuration
-- ✅ API rate limiting and security
-
 ## 🛠️ Tech Stack
 
 ### Frontend
