@@ -1,6 +1,6 @@
 # 🍽️ FoodEx - MERN Stack Recipe Platform
 
-A full-stack recipe sharing and food community platform built with the MERN stack (MongoDB, Express.js, React.js, Node.js). Features user authentication, recipe management, social interactions, and a modern responsive UI.
+A full-stack recipe sharing and food community platform built with the MERN stack (MongoDB, Express.js, React.js, Node.js). Features user authentication, recipe management, social interactions, and a modern responsive UI. Backend repo - https://github.com/rakshit1610/foodex_backend
 
 ## 🏭 Features
 
@@ -58,78 +58,34 @@ A full-stack recipe sharing and food community platform built with the MERN stac
 - **API Testing**: Postman
 - **Code Quality**: ESLint, Prettier
 
-## 📁 Project Structure
+## 📸 Screenshots
 
-```
-foodex-mern/
-├── frontend/                 # React.js Frontend
-│   ├── public/              # Static files
-│   ├── src/
-│   │   ├── components/      # Reusable components
-│   │   ├── pages/           # Page components
-│   │   ├── redux/           # Redux store and actions
-│   │   ├── utils/           # Utility functions
-│   │   ├── styles/          # CSS and styling
-│   │   └── App.js           # Main app component
-│   ├── package.json
-│   └── README.md
-├── backend/                  # Node.js Backend
-│   ├── app.js               # Main application entry point
-│   ├── package.json         # Dependencies and scripts
-│   ├── controllers/         # Route controllers
-│   │   ├── auth.js         # Authentication logic
-│   │   ├── recipes.js      # Recipe management
-│   │   └── user.js         # User management
-│   ├── routes/             # API routes
-│   │   ├── auth.js         # Authentication routes
-│   │   ├── recipes.js      # Recipe routes
-│   │   └── user.js         # User routes
-│   ├── middleware/         # Custom middleware
-│   │   └── authguard.js    # JWT authentication guard
-│   ├── models/             # Data models
-│   ├── utils/              # Utility functions
-│   │   ├── fileDB.js       # File-based database utility
-│   │   ├── email.js        # Email sending utilities
-│   │   └── suggestionmail.js # Suggestion email templates
-│   ├── data/               # JSON data files
-│   │   ├── users.json      # User data storage
-│   │   └── recipes.json    # Recipe data storage
-│   └── uploads/            # File upload directory
-├── package.json            # Root package.json
-└── README.md              # This file
-```
+### Sign Up Page
 
-## 📚 API Endpoints
 
-### Authentication
-- `POST /auth/signup` - User registration
-- `POST /auth/login` - User login
-- `POST /auth/google` - Google OAuth login
-- `POST /auth/check-otp` - OTP verification
-- `POST /auth/resend-otp` - Resend OTP
-- `POST /auth/send-reset-otp` - Send password reset OTP
-- `POST /auth/check-reset-otp` - Verify reset OTP
-- `POST /auth/reset-password` - Reset password
+### Sign In Page
+![Sign In Page]()
 
-### Recipes
-- `GET /recipe` - Get all recipes
-- `POST /recipe/add` - Create new recipe
-- `GET /recipe/:id` - Get specific recipe
-- `GET /recipe/category/:type` - Get recipes by category
-- `PUT /recipe/edit` - Edit recipe
-- `DELETE /recipe/:id/:ownerId` - Delete recipe
-- `GET /recipe/read/:id/:readerId` - Read recipe with user context
-- `GET /recipe/guest/:id` - Read recipe as guest
-- `POST /recipe/like` - Like/unlike recipe
-- `POST /recipe/suggestion` - Send recipe suggestion
-- `GET /recipe/search` - Search recipes
+### Home Page
+![Home Page](screenshots/home-page.png)
 
-### Users
-- `GET /user/profile/:userId` - Get user profile
-- `GET /user/bookmarks/:userId` - Get user bookmarks
-- `GET /user/other/:celebId/:fanId` - Get other user profile
-- `PUT /user/profile-picture/:userId` - Update profile picture
-- `GET /user/following/:userId` - Get following list
-- `GET /user/followers/:userId` - Get followers list
-- `POST /user/follow-toggle` - Follow/unfollow user
-- `PUT /user/preferences` - Update user preferences
+### Recipe Details Page
+![Recipe Details Page](screenshots/recipe-details.png)
+
+### User Profile Page
+![User Profile Page](screenshots/user-profile.png)
+
+### Add Recipe Page
+![Add Recipe Page](screenshots/add-recipe.png)
+
+### Search Results Page
+![Search Results Page](screenshots/search-results.png)
+
+### Categories Page
+![Categories Page](screenshots/categories.png)
+
+### Bookmarks Page
+![Bookmarks Page](screenshots/bookmarks.png)
+
+### Mobile Responsive Design
+![Mobile Responsive Design](screenshots/mobile-responsive.png) 
